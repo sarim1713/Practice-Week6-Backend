@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllArticles, getArticleById, createArticle, updateArticle, deleteArticle } from "../controllers/articleController.js";
+import { getAllArticles, getArticleById, createArticle, updateArticle, deleteArticle, getArticlesByJournalist } from "../controllers/articleController.js";
 
 const articleRouter = Router();
 articleRouter.get("/", getAllArticles);
@@ -9,3 +9,6 @@ articleRouter.put("/:id", updateArticle);
 articleRouter.delete("/:id", deleteArticle);
 
 export default articleRouter;
+
+export const journalistRouter = Router();
+journalistRouter.get("/:id/articles", getArticlesByJournalist);
